@@ -1,0 +1,37 @@
+@PACKAGE_INIT@
+
+# HVAlgo CMake配置文件
+
+include(CMakeFindDependencyMacro)
+
+# 查找依赖包
+find_dependency(MetavisionSDK REQUIRED COMPONENTS base core)
+find_dependency(Eigen3 REQUIRED)
+
+# 包含targets文件
+include("${CMAKE_CURRENT_LIST_DIR}/HVAlgoTargets.cmake")
+
+# 检查所有组件是否可用
+check_required_components(HVAlgo)
+
+# 设置变量供用户使用
+set(HVAlgo_FOUND TRUE)
+set(HVAlgo_VERSION @PROJECT_VERSION@)
+set(HVAlgo_INCLUDE_DIRS "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@/hv_algo")
+set(HVAlgo_LIBRARIES HVAlgo::hv_algo)
+
+# 向后兼容的变量名
+set(HVALGO_FOUND ${HVAlgo_FOUND})
+set(HVALGO_VERSION ${HVAlgo_VERSION})
+set(HVALGO_INCLUDE_DIRS ${HVAlgo_INCLUDE_DIRS})
+set(HVALGO_LIBRARIES ${HVAlgo_LIBRARIES})
+
+# 提供组件信息
+set(HVAlgo_COMPONENTS denoise cv cv3d restoration)
+
+# 打印找到的信息
+if(NOT HVAlgo_FIND_QUIETLY)
+    message(STATUS "Found HVAlgo: ${HVAlgo_VERSION}")
+    message(STATUS "HVAlgo include dirs: ${HVAlgo_INCLUDE_DIRS}")
+    message(STATUS "HVAlgo libraries: ${HVAlgo_LIBRARIES}")
+endif()
