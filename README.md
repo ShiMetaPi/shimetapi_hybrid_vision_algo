@@ -115,17 +115,17 @@ ShiMetaPi Hybrid Vision SDK 由 hybrid_vision_toolkit 和 hybrid_vision_algo 两
 - **Ubuntu** == 22.04
 - **CMake** >= 3.16
 - **C++17** 兼容编译器
+- **Openeb SDK**
 - **Eigen3**
 
 ### 可选依赖
 
-- **Openeb SDK**
 - **PyTorch** (用于 MLP 滤波器)
 - **CUDA** (GPU 加速支持)
 
 ## 安装指南
 
-### 安装依赖
+### 1.安装依赖
 
 #### Ubuntu/Debian
 
@@ -133,6 +133,13 @@ ShiMetaPi Hybrid Vision SDK 由 hybrid_vision_toolkit 和 hybrid_vision_algo 两
 # 安装基础依赖
 sudo apt update
 sudo apt install cmake build-essential libeigen3-dev
+
+#安装HV Toolkits
+# 拉取子仓库
+git submodule update --init
+# 进入子仓库目录
+cd external/shimetapi_hybrid_vision_toolkit/
+sudo ./install_libs.sh
 
 # 安装 Openeb
 curl -L https://propheseeai.jfrog.io/artifactory/api/security/keypair/prophesee-gpg/public >/tmp/propheseeai.jfrog.op.asc
@@ -151,31 +158,7 @@ unzip libtorch-cxx11-abi-shared-with-deps-2.7.1+cpu.zip
 export CMAKE_PREFIX_PATH=/path/to/libtorch:$CMAKE_PREFIX_PATH
 ```
 
-### 安装Shimeta Hybrid Vision Toolkit
-
-本项目包含 HV Toolkit 子仓库，用于简化事件数据处理。请按以下步骤安装：
-
-```bash
-# 拉取子仓库
-git submodule update --init
-
-# 进入子仓库目录
-cd external/shimetapi_hybrid_vision_toolkit/
-
-# 创建构建目录
-mkdir build && cd build
-
-# 配置CMake
-cmake ..
-
-# 编译项目
-make -j$(nproc)
-
-# 安装库文件
-sudo make install
-```
-
-### 编译安装
+### 2.编译安装
 
 ```bash
 mkdir build && cd build
@@ -192,7 +175,7 @@ make -j$(nproc)
 sudo make install
 ```
 
-### 编译选项
+### 3.编译选项
 
 | 选项                 | 默认值  | 说明                     |
 | -------------------- | ------- | ------------------------ |
