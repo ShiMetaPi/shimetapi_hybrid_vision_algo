@@ -25,7 +25,7 @@ The ShiMetaPi Hybrid Vision SDK consists of two independent SDKs, hybrid\_vision
   * **External Dependencies (`external`):** By integrating third-party libraries, it provides users with more device options, such as: Shimetapi Hybrid vision toolkit\`, OpenEb (installed via command) and others.
 * **Function:** It provides processed, enhanced, or interpreted event data information to upper-layer applications (`APP`). Application developers primarily call the interfaces of this layer to implement advanced functionalities of event cameras (such as playback, recording, analysis).
 
-## **`shimetapi_Hybrid_vision_toolkit`**
+## **[shimetapi_Hybrid_vision_toolkit](https://github.com/ShiMetaPi/shimetapi_hybrid_vision_toolkit)**
 
 * **Positioning:** This is the Hardware Abstraction Layer (HAL) and the basic utilities layer of the SDK, located below the algorithm layer (deep blue section).
 * **Core Functions:** It provides functionalities for interacting with hardware and basic data flow operations. It is responsible for reading raw data from physical interfaces, performing preliminary processing (such as encoding/decoding), and passing the data to the upper-layer algorithm layer. It also receives control commands from the upper layer to manage hardware.

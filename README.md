@@ -25,7 +25,7 @@ ShiMetaPi Hybrid Vision SDK 由 hybrid_vision_toolkit 和 hybrid_vision_algo 两
   - **外部依赖 (`external`):** 通过集成第三方库给用户提供更多设备的选择,例如：shimetapi Hybrid vision toolkit`，OpenEb(通过命令安装)等 。
 - **作用：** 它为上层应用 (`APP`) 提供了经过处理、增强或理解的事件数据信息。应用开发者主要调用这一层的接口来实现事件相机的高级功能（如播放、录制、分析）。
 
-## **`shimetapi_Hybrid_vision_toolkit (HAL层工具包)`**
+## [shimetapi_Hybrid_vision_toolkit (HAL层工具包)](https://github.com/ShiMetaPi/shimetapi_hybrid_vision_toolkit)
 
 - **定位：** 这是 SDK 的 硬件抽象层 (HAL) 和基础工具层 ，位于算法层之下（深蓝色部分）。
 - **核心功能：** 提供与硬件交互和数据流基础操作的功能。它负责从物理接口读取原始数据，进行初步处理（如编解码），并将数据传递给上层算法层，同时也接收上层指令控制硬件。
